@@ -6,7 +6,7 @@ using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 
-namespace SSC
+namespace SimpleStatCards
 {
     // These are the mods required for our mod to work
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
@@ -16,7 +16,7 @@ namespace SSC
     [BepInPlugin(ModId, ModName, Version)]
     // The game our mod is associated with
     [BepInProcess("Rounds.exe")]
-    public class MyModName : BaseUnityPlugin
+    public class SimpleStatCards : BaseUnityPlugin
     {
         private const string ModId = "com.AliMo06.rounds.SimpleStatCards";
         private const string ModName = "SimpleStatCards";
