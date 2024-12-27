@@ -24,7 +24,6 @@ namespace SimpleStatCards
         public const string ModInitials = "SSC";
         public static SimpleStatCards instance { get; private set; }
 
-
         void Awake()
         {
             // Use this to call any harmony patch files your mod may have
@@ -34,7 +33,7 @@ namespace SimpleStatCards
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<MyCardName>();
+            CustomCard.BuildCard<QuickShots>();
         }
     }
 }
