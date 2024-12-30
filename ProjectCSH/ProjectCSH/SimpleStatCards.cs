@@ -34,6 +34,10 @@ namespace SimpleStatCards
         {
             instance = this;
             CustomCard.BuildCard<QuickShots>();
+            CustomCard.BuildCard<Deagle>();
+            CustomCard.BuildCard<Goliath>();
+            CustomCard.BuildCard<Kalashnikov>();
+            CustomCard.BuildCard<HandCannon>();
         }
     }
 }

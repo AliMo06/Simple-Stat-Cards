@@ -10,22 +10,18 @@ using UnityEngine;
 
 namespace SimpleStatCards.Cards
 {
-    class QuickShots : CustomCard
+    class Goliath : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been setup.");
-
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-
-            gun.projectileSpeed *= 2.0f; // doubles bullet speed
-            gun.attackSpeed *= 0.75f; // makes the gun shoot 25% faster
-            gun.reloadTimeAdd = -0.25f; // removes 0.25 seconds from the reload time
-            gun.damage *= 0.85f; // removes 15% of gun damage
-
+            statModifiers.health = 4.0f; // 4x health
+            gun.damage *= 1.2f;
+            gun.reloadTimeAdd = 0.5f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -35,11 +31,11 @@ namespace SimpleStatCards.Cards
 
         protected override string GetTitle()
         {
-            return "Quick Shots";
+            return "Goliath";
         }
         protected override string GetDescription()
         {
-            return "Shoot, Atack, and Reload faster at the cost of a bit of Damage";
+            return "Thankfully, theres no David this time.";
         }
         protected override GameObject GetCardArt()
         {
@@ -56,37 +52,29 @@ namespace SimpleStatCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullet Speed",
-                    amount = "+100%",
+                    stat = "Health",
+                    amount = "+300%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Attack Speed",
-                    amount = "-25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Reload Speed",
-                    amount = "-0.25s",
+                    stat = "Damage",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Damage",
-                    amount = "-15%",
+                    stat = "Reload Speed",
+                    amount = "+0.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

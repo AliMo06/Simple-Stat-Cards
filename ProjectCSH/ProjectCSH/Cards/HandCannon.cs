@@ -10,36 +10,34 @@ using UnityEngine;
 
 namespace SimpleStatCards.Cards
 {
-    class QuickShots : CustomCard
+    class HandCannon : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been setup.");
-
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 
-            gun.projectileSpeed *= 2.0f; // doubles bullet speed
-            gun.attackSpeed *= 0.75f; // makes the gun shoot 25% faster
-            gun.reloadTimeAdd = -0.25f; // removes 0.25 seconds from the reload time
-            gun.damage *= 0.85f; // removes 15% of gun damage
-
+            gun.damage *= 8.5f; // greatly increases damage
+            gun.projectileSpeed *= 3.0f; // doubles bullet speed
+            gunAmmo.maxAmmo = 1; // sets ammo to 1
+            gunAmmo.reloadTimeAdd = 3.25f; // adds 3.25 seconds of reload time 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
         }
 
-
+             
         protected override string GetTitle()
         {
-            return "Quick Shots";
+            return "Hand Cannon";
         }
         protected override string GetDescription()
         {
-            return "Shoot, Atack, and Reload faster at the cost of a bit of Damage";
+            return "You now wield a Hand Cannon with 1 ammo";
         }
         protected override GameObject GetCardArt()
         {
@@ -56,37 +54,33 @@ namespace SimpleStatCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullet Speed",
-                    amount = "+100%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Attack Speed",
-                    amount = "-25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Reload Speed",
-                    amount = "-0.25s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
                     stat = "Damage",
-                    amount = "-15%",
+                    amount = "+850%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat() {
+                    positive = true,
+                    stat = "Bullet Speed",
+                    amount = "+300%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat() {
+                    positive = false,
+                    stat = "Reload Speed",
+                    amount = "+3.25s",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat() {
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {
