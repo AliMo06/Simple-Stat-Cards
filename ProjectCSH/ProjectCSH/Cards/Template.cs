@@ -6,35 +6,29 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-
-
 namespace SimpleStatCards.Cards
 {
-    class Goliath : CustomCard
+    class Template : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
+            UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {  
-            statModifiers.health = 4.0f; // 4x health
-            gun.damage *= 1.2f;
-            gun.reloadTimeAdd = 0.5f;
+        {
+            UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            UnityEngine.Debug.Log($"[{SimpleStatCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
         }
-
-
         protected override string GetTitle()
         {
-            return "Goliath";
+            return "CardName";
         }
         protected override string GetDescription()
         {
-            return "Thankfully, theres no David this time.";
+            return "CardDescription";
         }
         protected override GameObject GetCardArt()
         {
@@ -51,22 +45,8 @@ namespace SimpleStatCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "+300%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Reload Speed",
-                    amount = "+0.5s",
+                    stat = "Effect",
+                    amount = "No",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
