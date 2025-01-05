@@ -20,7 +20,7 @@ namespace SimpleStatCards
     {
         private const string ModId = "com.AliMo06.rounds.SimpleStatCards";
         private const string ModName = "SimpleStatCards";
-        public const string Version = "1.0.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.0.2"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "SSC";
         public static SimpleStatCards instance { get; private set; }
 
@@ -38,6 +38,8 @@ namespace SimpleStatCards
             CustomCard.BuildCard<Goliath>();
             CustomCard.BuildCard<Kalashnikov>();
             CustomCard.BuildCard<HandCannon>();
+            CustomCard.BuildCard<Adrenaline>();
+            CustomCard.BuildCard<IronCurtain>();
         }
     }
 }

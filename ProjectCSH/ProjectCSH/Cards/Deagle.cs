@@ -18,7 +18,6 @@ namespace SimpleStatCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
             gun.projectileSpeed *= 6.0f; // doubles bullet speed
             gun.damage *= 2.5f; // removes 15% of gun damage
             gun.reloadTimeAdd = +0.5f; // adds 0.5 seconds to the reload time

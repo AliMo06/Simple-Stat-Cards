@@ -17,7 +17,6 @@ namespace SimpleStatCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         { 
-
             gun.damage *= 8.5f; // greatly increases damage
             gun.projectileSpeed *= 3.0f; // doubles bullet speed
             gunAmmo.maxAmmo = 1; // sets ammo to 1

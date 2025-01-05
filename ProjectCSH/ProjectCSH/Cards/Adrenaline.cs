@@ -18,7 +18,7 @@ namespace SimpleStatCards.Cards
         {
             gun.damage *= 4.0f; //Quadruples damage
             gun.attackSpeed *= 0.5f; //Halves attack speed, making you shoot twice as fast 
-            //edit movespeed stat and make it soething like player.movespeed *= 1.8f
+            characterStats.movementSpeed *= 1.8f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
